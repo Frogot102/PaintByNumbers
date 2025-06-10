@@ -58,31 +58,28 @@ namespace PaintByNumbers
 
         private void InitializeNumberGrid()
         {
-            // Очищаем сетку
+
             DrawingGrid.Children.Clear();
             DrawingGrid.RowDefinitions.Clear();
             DrawingGrid.ColumnDefinitions.Clear();
 
-            // Создаем случайную сетку номеров
             Random rand = new Random();
             numberGrid = new int[GridSize, GridSize];
             cellRectangles = new Rectangle[GridSize, GridSize];
             coloredCells = 0;
             totalCellsToColor = GridSize * GridSize;
 
-            // Настраиваем строки и столбцы сетки
             for (int i = 0; i < GridSize; i++)
             {
                 DrawingGrid.RowDefinitions.Add(new RowDefinition());
                 DrawingGrid.ColumnDefinitions.Add(new ColumnDefinition());
             }
 
-            // Заполняем сетку элементами
             for (int row = 0; row < GridSize; row++)
             {
                 for (int col = 0; col < GridSize; col++)
                 {
-                    int number = rand.Next(1, 6); // числа от 1 до 5
+                    int number = rand.Next(1, 6);
                     numberGrid[row, col] = number;
 
                     var border = new Border
@@ -108,7 +105,6 @@ namespace PaintByNumbers
                         Opacity = 0
                     };
 
-                    // Добавляем обработчик клика
                     rectangle.MouseDown += Cell_MouseDown;
 
                     Grid.SetRow(rectangle, row);

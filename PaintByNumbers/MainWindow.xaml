@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PaintByNumbers"
         mc:Ignorable="d"
-        Title="Картина по номерам" Height="600" Width="800">
+        Title="Картина по номерам" Height="600" Width="800"
+        WindowState="Maximized"
+        Icon="/image/Icon2.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -13,7 +15,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Панель инструментов -->
+
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5" Background="LightGray">
             <TextBlock Text="Выберите цвет: " VerticalAlignment="Center" Margin="5,0"/>
             <ComboBox x:Name="ColorComboBox" Width="100" SelectedIndex="0" SelectionChanged="ColorComboBox_SelectionChanged"/>
@@ -21,7 +23,6 @@
             <TextBlock x:Name="ProgressText" Text="Прогресс: 0%" VerticalAlignment="Center" Margin="20,0"/>
         </StackPanel>
 
-        <!-- Холст для рисования -->
         <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1" Margin="10" Background="White">
             <Grid x:Name="DrawingGrid" MouseMove="DrawingGrid_MouseMove" MouseLeave="DrawingGrid_MouseLeave">
                 <TextBlock x:Name="HoverText" HorizontalAlignment="Left" VerticalAlignment="Top" 
@@ -29,7 +30,7 @@
             </Grid>
         </Border>
 
-        <!-- Палитра цветов -->
+
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
             <TextBlock Text="Палитра: " VerticalAlignment="Center" Margin="0,0,10,0"/>
             <ItemsControl x:Name="ColorPalette" ItemsSource="{Binding PaletteColors}">
